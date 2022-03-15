@@ -26,6 +26,12 @@
 		D59A555D27A9F6900080BE1D /* CryptoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59A555C27A9F6900080BE1D /* CryptoService.swift */; };
 		D5BA8BE327BEC9B300BAF122 /* Devlopment.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = D5BA8BE227BEC9B300BAF122 /* Devlopment.xcconfig */; };
 		D5C94927277926C800AAE295 /* TextCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C94926277926C800AAE295 /* TextCompletion.swift */; };
+		D5DA5B7527CAC94E00EE1CFC /* HistoricalDailyDataChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5DA5B7427CAC94E00EE1CFC /* HistoricalDailyDataChart.swift */; };
+		D5DA7BAF27D3EC7200BA922E /* AlpacaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5DA7BAE27D3EC7200BA922E /* AlpacaService.swift */; };
+		D5DA7BB327D3FF2800BA922E /* ImageSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5DA7BB227D3FF2800BA922E /* ImageSlider.swift */; };
+		D5E5294027DD41FA00759C36 /* HomePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E5293F27DD41FA00759C36 /* HomePageViewModel.swift */; };
+		D5E5294227DD461100759C36 /* PolygonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E5294127DD461100759C36 /* PolygonModel.swift */; };
+		D5E5294527DD5EF700759C36 /* PolygonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E5294427DD5EF700759C36 /* PolygonService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +73,12 @@
 		D59A555C27A9F6900080BE1D /* CryptoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoService.swift; sourceTree = "<group>"; };
 		D5BA8BE227BEC9B300BAF122 /* Devlopment.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Devlopment.xcconfig; sourceTree = "<group>"; };
 		D5C94926277926C800AAE295 /* TextCompletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCompletion.swift; sourceTree = "<group>"; };
+		D5DA5B7427CAC94E00EE1CFC /* HistoricalDailyDataChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalDailyDataChart.swift; sourceTree = "<group>"; };
+		D5DA7BAE27D3EC7200BA922E /* AlpacaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlpacaService.swift; sourceTree = "<group>"; };
+		D5DA7BB227D3FF2800BA922E /* ImageSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSlider.swift; sourceTree = "<group>"; };
+		D5E5293F27DD41FA00759C36 /* HomePageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewModel.swift; sourceTree = "<group>"; };
+		D5E5294127DD461100759C36 /* PolygonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolygonModel.swift; sourceTree = "<group>"; };
+		D5E5294427DD5EF700759C36 /* PolygonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolygonService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +131,9 @@
 		D511324F275A9ECB001D20EF /* ZenNotifications */ = {
 			isa = PBXGroup;
 			children = (
+				D5E5294327DD5EE500759C36 /* Networking */,
+				D5E5293E27DD41E300759C36 /* Model */,
+				D5E5293D27DD41D300759C36 /* ViewModel */,
 				D5113287275AAEA0001D20EF /* Info.plist */,
 				D5113285275AAE8D001D20EF /* GoogleService-Info.plist */,
 				D511327A275A9F5C001D20EF /* View */,
@@ -130,6 +145,7 @@
 				D5C94926277926C800AAE295 /* TextCompletion.swift */,
 				D59A555C27A9F6900080BE1D /* CryptoService.swift */,
 				D5BA8BE227BEC9B300BAF122 /* Devlopment.xcconfig */,
+				D5DA7BAE27D3EC7200BA922E /* AlpacaService.swift */,
 			);
 			path = ZenNotifications;
 			sourceTree = "<group>";
@@ -167,8 +183,34 @@
 				D578BB442772752B00D19059 /* Homepage.swift */,
 				D578BB462772754200D19059 /* TextGeneration.swift */,
 				D578BB48277277F400D19059 /* Settings.swift */,
+				D5DA5B7427CAC94E00EE1CFC /* HistoricalDailyDataChart.swift */,
+				D5DA7BB227D3FF2800BA922E /* ImageSlider.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		D5E5293D27DD41D300759C36 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D5E5293F27DD41FA00759C36 /* HomePageViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D5E5293E27DD41E300759C36 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D5E5294127DD461100759C36 /* PolygonModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D5E5294327DD5EE500759C36 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				D5E5294427DD5EF700759C36 /* PolygonService.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,15 +354,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5113253275A9ECB001D20EF /* ContentView.swift in Sources */,
+				D5DA5B7527CAC94E00EE1CFC /* HistoricalDailyDataChart.swift in Sources */,
+				D5E5294027DD41FA00759C36 /* HomePageViewModel.swift in Sources */,
 				D511327E275A9F94001D20EF /* LoginPage.swift in Sources */,
 				D578BB4327724B2600D19059 /* Home.swift in Sources */,
 				D578BB452772752B00D19059 /* Homepage.swift in Sources */,
 				D578BB49277277F400D19059 /* Settings.swift in Sources */,
 				D578BB472772754200D19059 /* TextGeneration.swift in Sources */,
+				D5E5294527DD5EF700759C36 /* PolygonService.swift in Sources */,
 				D5113251275A9ECB001D20EF /* ZenNotificationsApp.swift in Sources */,
+				D5E5294227DD461100759C36 /* PolygonModel.swift in Sources */,
 				D578BB4B277289A200D19059 /* Tickets.swift in Sources */,
+				D5DA7BAF27D3EC7200BA922E /* AlpacaService.swift in Sources */,
 				D59A555D27A9F6900080BE1D /* CryptoService.swift in Sources */,
 				D5C94927277926C800AAE295 /* TextCompletion.swift in Sources */,
+				D5DA7BB327D3FF2800BA922E /* ImageSlider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

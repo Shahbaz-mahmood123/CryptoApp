@@ -34,7 +34,16 @@ class Api : ObservableObject{
         }.resume()
         
     }
-
-
+//How to call this in a list view 
+    //              List (tickets){ ticket in
+    //                  VStack{
+    //                      Text(ticket.title)
+    //                      Text(ticket.requester)
+    //                      Text(ticket.body)}
+    //
+    //              }
+    //          }.onAppear(){
+    //              Api().loadData{(tickets) in self.tickets = tickets}
+    //          }
     
 }

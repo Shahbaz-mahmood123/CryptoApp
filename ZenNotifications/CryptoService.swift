@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 
 struct CryptoResponse: Codable {
@@ -30,8 +31,9 @@ struct Result: Codable {
     let n: Int
 }
 
-struct ExchangeRate: Codable{
+struct ExchangeRate: Codable, Identifiable{
     let realtimeCurrencyExchangeRate: RealtimeCurrencyExchangeRate
+    let id = UUID()
     
     enum CodingKeys: String, CodingKey {
         case realtimeCurrencyExchangeRate = "Realtime Currency Exchange Rate"
@@ -39,12 +41,13 @@ struct ExchangeRate: Codable{
 }
 
 // MARK: - RealtimeCurrencyExchangeRate
-struct RealtimeCurrencyExchangeRate: Codable {
+struct RealtimeCurrencyExchangeRate: Codable, Identifiable{
+    let id = UUID()
     var the1FromCurrencyCode: String?
     var the2FromCurrencyName: String?
     var the3ToCurrencyCode: String?
     var the4ToCurrencyName: String?
-    var the5ExchangeRate: String?
+    var the5ExchangeRate: String
     var the6LastRefreshed: String?
     var the7TimeZone: String?
     var the8BidPrice: String?
@@ -122,13 +125,38 @@ struct TimeSeriesDigitalCurrencyDaily: Codable {
     }
 }
 
+struct CurrentMarketStatus: Codable {
+    let market: String
+    let earlyHours: Bool
+    let afterHours: Bool
+    let serverTime: String
+    let exchanges: Exchanges
+    let currencies: Currencies
+}
+
+// MARK: - Currencies
+struct Currencies: Codable {
+    let fx: String
+    let crypto: String
+}
+
+// MARK: - Exchanges
+struct Exchanges: Codable {
+    let nyse: String
+    let nasdaq: String
+    let otc: String
+}
 
 
-class CryptoService{
+
+
+
+class CryptoService: ObservableObject{
     
     @Published var cryptoResponse = CryptoResponse.self
-    @Published var exhangeRate = ExchangeRate.self
+    @Published var exchangeRate = ExchangeRate.self
     @Published var dailyData = HistoricalDailyData.self
+    @Published var marketStatus = CurrentMarketStatus.self
     
     var polygonKey: String {
       get {
@@ -160,8 +188,7 @@ class CryptoService{
     func getCryptoData(completion:@escaping (CryptoResponse) -> ()){
         
 
-       // let token = Bundle.main.object(forInfoDictionaryKey: "PolygonAPIKey") as? String
-        //let token = "u0zj42eqwtsYSt4NhYp1uwFXD_pA3YSg"
+
         let url = URL(string:"https://api.polygon.io/v2/aggs/ticker/X:BTCUSD/range/1/day/2021-07-22/2021-07-22")!
         
         var request = URLRequest(url: url)
@@ -175,8 +202,6 @@ class CryptoService{
                 print(error?.localizedDescription ?? "No data")
                 return
             }
-
-            print(data)
            
             let cryptoData = try! JSONDecoder().decode(CryptoResponse.self, from: data)
             print(cryptoData)
@@ -189,9 +214,9 @@ class CryptoService{
         task.resume()
     }
     
-    func getExchangeRate(completion: @escaping(ExchangeRate) -> ()){
+    func getExchangeRate(cryptoSymbol: String,completion: @escaping(ExchangeRate) -> ()){
         
-        let exchangeRateURL = URL(string:"https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=BTC&to_currency=CAD&apikey=\(AlphaVantage)")!
+        let exchangeRateURL = URL(string:"https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=\(cryptoSymbol)&to_currency=CAD&apikey=\(AlphaVantage)")!
         
         let request = URLRequest(url: exchangeRateURL)
         
@@ -200,10 +225,8 @@ class CryptoService{
                 print(error?.localizedDescription ?? "No data")
                 return
             }
-
-            print(data)
+       
             let exchangeRate = try! JSONDecoder().decode(ExchangeRate.self, from: data)
-            print(exchangeRate)
             
             DispatchQueue.main.async{
                 completion(exchangeRate)
@@ -215,7 +238,7 @@ class CryptoService{
     }
     func getHistoricalDataDaily(completion: @escaping(HistoricalDailyData) -> ()){
         
-        let dailyDataURL = URL(string:"https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_DAILY&symbol=BTC&market=CNY&apikey=\(AlphaVantage)")!
+        let dailyDataURL = URL(string:"https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_DAILY&symbol=BTC&market=CAD&apikey=\(AlphaVantage)")!
         
         let request = URLRequest(url: dailyDataURL)
         
@@ -225,9 +248,9 @@ class CryptoService{
                 return
             }
 
-           print(data)
+
             let dailyData = try! JSONDecoder().decode(HistoricalDailyData.self, from: data)
-            print(dailyData)
+            
             
             DispatchQueue.main.async{
                 completion(dailyData)
@@ -237,5 +260,30 @@ class CryptoService{
         task.resume()
         
     }
-}
+    
+    func  getCurrentMarketStatus(completion: @escaping(CurrentMarketStatus) -> ()){
+            let dailyDataURL = URL(string:"https://api.polygon.io/v1/marketstatus/now?apiKey=\(polygonKey)")!
+            
+            let request = URLRequest(url: dailyDataURL)
+            
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                guard let data = data, error == nil else {
+                    print(error?.localizedDescription ?? "No data")
+                    return
+                }
+
+
+                let marketStatus = try! JSONDecoder().decode(CurrentMarketStatus.self, from: data)
+                print(marketStatus)
+                
+                DispatchQueue.main.async{
+                    completion(marketStatus)
+                }
+                
+            }
+            task.resume()
+            
+        }
+    
+    }
 
