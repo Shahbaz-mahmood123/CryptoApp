@@ -17,13 +17,15 @@ struct ImageSlider: View {
         GeometryReader{ geometryReader in
             LazyVStack {
                 TabView(selection: $index) {
+                    let count = viewModel.newsResponse?.news.count
                     ForEach(0...5, id: \.self) { index in
                         ZStack(alignment: .bottom){
                             HStack(alignment: .top){
-                                let image =  URL(string: newsResponse?.news[index].images[1].url ?? "error")
+                                let image =  URL(string: newsResponse?.news[index].images[1].url ?? "https://imageio.forbes.com/specials-images/dam/imageserve/908633080/960x0.jpg?fit=bounds&format=jpg&width=960")
                                 AsyncImage( url: image){ image in image
                                         .resizable()
                                         .scaledToFill()
+
                                         
                                 } placeholder: {
                                     ProgressView()

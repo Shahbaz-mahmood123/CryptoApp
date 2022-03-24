@@ -6,15 +6,36 @@
 //
 
 import SwiftUI
+import Charts
 
-struct CandleStickChart: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+struct CandleStickChart: UIViewRepresentable{
+    
+    func makeUIView(context: Context) -> CandleStickChartView {
+        let chart = CandleStickChartView()
+        return chart
     }
+    
+    func updateUIView(_ uiView: CandleStickChartView, context: Context) {
+        
+    }
+    
+    func addData() -> CandleChartData{
+        
+        
+        
+        let data = CandleChartData()
+        let dataSet = CandleChartDataSet()
+        return data
+    }
+    
+    typealias UIViewType = CandleStickChartView
+
 }
 
-struct CandleStickChart_Previews: PreviewProvider {
+struct CandleStickPreview: PreviewProvider {
     static var previews: some View {
         CandleStickChart()
     }
 }
+
+

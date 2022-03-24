@@ -18,12 +18,22 @@
 		D5113281275AAD14001D20EF /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D5113280275AAD14001D20EF /* FirebaseAuth */; };
 		D5113284275AAD53001D20EF /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = D5113283275AAD53001D20EF /* GoogleSignIn */; };
 		D5113286275AAE8D001D20EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D5113285275AAE8D001D20EF /* GoogleService-Info.plist */; };
+		D5743A7227EBC14D0019B7D6 /* Utlities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5743A7127EBC14D0019B7D6 /* Utlities.swift */; };
+		D5743A7B27ECDE4E0019B7D6 /* CandleStickChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5743A7A27ECDE4E0019B7D6 /* CandleStickChart.swift */; };
+		D5743A8727ECFE4B0019B7D6 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = D5743A8627ECFE4B0019B7D6 /* Charts */; };
+		D5743A8C27ECFF7E0019B7D6 /* CryptoHomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5743A8B27ECFF7E0019B7D6 /* CryptoHomePage.swift */; };
+		D5743A9027ECFFE10019B7D6 /* CryptoHomePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5743A8F27ECFFE10019B7D6 /* CryptoHomePageViewModel.swift */; };
+		D5743ACD27ED05D90019B7D6 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = D5743ACC27ED05D90019B7D6 /* SwiftUICharts */; };
+		D5743ACF27ED06D00019B7D6 /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5743ACE27ED06D00019B7D6 /* LineChartView.swift */; };
+		D5743AD127ED06FC0019B7D6 /* LineChartVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5743AD027ED06FC0019B7D6 /* LineChartVIewModel.swift */; };
 		D578BB4327724B2600D19059 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = D578BB4227724B2600D19059 /* Home.swift */; };
 		D578BB452772752B00D19059 /* Homepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D578BB442772752B00D19059 /* Homepage.swift */; };
 		D578BB472772754200D19059 /* TextGeneration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D578BB462772754200D19059 /* TextGeneration.swift */; };
 		D578BB49277277F400D19059 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D578BB48277277F400D19059 /* Settings.swift */; };
 		D578BB4B277289A200D19059 /* Tickets.swift in Sources */ = {isa = PBXBuildFile; fileRef = D578BB4A277289A200D19059 /* Tickets.swift */; };
 		D59A555D27A9F6900080BE1D /* CryptoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59A555C27A9F6900080BE1D /* CryptoService.swift */; };
+		D5A285D527E8EFDD00FF4558 /* CryptoExchanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A285D427E8EFDD00FF4558 /* CryptoExchanges.swift */; };
+		D5A285D727E8F75900FF4558 /* CryptoExchangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A285D627E8F75900FF4558 /* CryptoExchangeViewModel.swift */; };
 		D5BA8BE327BEC9B300BAF122 /* Devlopment.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = D5BA8BE227BEC9B300BAF122 /* Devlopment.xcconfig */; };
 		D5C94927277926C800AAE295 /* TextCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C94926277926C800AAE295 /* TextCompletion.swift */; };
 		D5DA5B7527CAC94E00EE1CFC /* HistoricalDailyDataChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5DA5B7427CAC94E00EE1CFC /* HistoricalDailyDataChart.swift */; };
@@ -32,6 +42,11 @@
 		D5E5294027DD41FA00759C36 /* HomePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E5293F27DD41FA00759C36 /* HomePageViewModel.swift */; };
 		D5E5294227DD461100759C36 /* PolygonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E5294127DD461100759C36 /* PolygonModel.swift */; };
 		D5E5294527DD5EF700759C36 /* PolygonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E5294427DD5EF700759C36 /* PolygonService.swift */; };
+		D5E5294927E6736400759C36 /* AlpacaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E5294827E6736400759C36 /* AlpacaModel.swift */; };
+		D5E5294B27E6739B00759C36 /* AlphaVantage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E5294A27E6739B00759C36 /* AlphaVantage.swift */; };
+		D5E5294D27E6746F00759C36 /* AlphaVantageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E5294C27E6746F00759C36 /* AlphaVantageModel.swift */; };
+		D5E5295027E7A75900759C36 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E5294F27E7A75900759C36 /* DateExtension.swift */; };
+		D5E5295327E8E9FD00759C36 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E5295227E8E9FD00759C36 /* NewsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,12 +80,20 @@
 		D511327D275A9F94001D20EF /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 		D5113285275AAE8D001D20EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D5113287275AAEA0001D20EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D5743A7127EBC14D0019B7D6 /* Utlities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utlities.swift; sourceTree = "<group>"; };
+		D5743A7A27ECDE4E0019B7D6 /* CandleStickChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickChart.swift; sourceTree = "<group>"; };
+		D5743A8B27ECFF7E0019B7D6 /* CryptoHomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoHomePage.swift; sourceTree = "<group>"; };
+		D5743A8F27ECFFE10019B7D6 /* CryptoHomePageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoHomePageViewModel.swift; sourceTree = "<group>"; };
+		D5743ACE27ED06D00019B7D6 /* LineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartView.swift; sourceTree = "<group>"; };
+		D5743AD027ED06FC0019B7D6 /* LineChartVIewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartVIewModel.swift; sourceTree = "<group>"; };
 		D578BB4227724B2600D19059 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		D578BB442772752B00D19059 /* Homepage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homepage.swift; sourceTree = "<group>"; };
 		D578BB462772754200D19059 /* TextGeneration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextGeneration.swift; sourceTree = "<group>"; };
 		D578BB48277277F400D19059 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		D578BB4A277289A200D19059 /* Tickets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tickets.swift; sourceTree = "<group>"; };
 		D59A555C27A9F6900080BE1D /* CryptoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoService.swift; sourceTree = "<group>"; };
+		D5A285D427E8EFDD00FF4558 /* CryptoExchanges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoExchanges.swift; sourceTree = "<group>"; };
+		D5A285D627E8F75900FF4558 /* CryptoExchangeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoExchangeViewModel.swift; sourceTree = "<group>"; };
 		D5BA8BE227BEC9B300BAF122 /* Devlopment.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Devlopment.xcconfig; sourceTree = "<group>"; };
 		D5C94926277926C800AAE295 /* TextCompletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCompletion.swift; sourceTree = "<group>"; };
 		D5DA5B7427CAC94E00EE1CFC /* HistoricalDailyDataChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalDailyDataChart.swift; sourceTree = "<group>"; };
@@ -79,6 +102,11 @@
 		D5E5293F27DD41FA00759C36 /* HomePageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewModel.swift; sourceTree = "<group>"; };
 		D5E5294127DD461100759C36 /* PolygonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolygonModel.swift; sourceTree = "<group>"; };
 		D5E5294427DD5EF700759C36 /* PolygonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolygonService.swift; sourceTree = "<group>"; };
+		D5E5294827E6736400759C36 /* AlpacaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlpacaModel.swift; sourceTree = "<group>"; };
+		D5E5294A27E6739B00759C36 /* AlphaVantage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphaVantage.swift; sourceTree = "<group>"; };
+		D5E5294C27E6746F00759C36 /* AlphaVantageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphaVantageModel.swift; sourceTree = "<group>"; };
+		D5E5294F27E7A75900759C36 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		D5E5295227E8E9FD00759C36 /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +115,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5113281275AAD14001D20EF /* FirebaseAuth in Frameworks */,
+				D5743ACD27ED05D90019B7D6 /* SwiftUICharts in Frameworks */,
+				D5743A8727ECFE4B0019B7D6 /* Charts in Frameworks */,
 				D5113284275AAD53001D20EF /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -131,6 +161,8 @@
 		D511324F275A9ECB001D20EF /* ZenNotifications */ = {
 			isa = PBXGroup;
 			children = (
+				D5743A7027EBC10C0019B7D6 /* Utility */,
+				D5E5294E27E7A73C00759C36 /* Extensions */,
 				D5E5294327DD5EE500759C36 /* Networking */,
 				D5E5293E27DD41E300759C36 /* Model */,
 				D5E5293D27DD41D300759C36 /* ViewModel */,
@@ -145,7 +177,6 @@
 				D5C94926277926C800AAE295 /* TextCompletion.swift */,
 				D59A555C27A9F6900080BE1D /* CryptoService.swift */,
 				D5BA8BE227BEC9B300BAF122 /* Devlopment.xcconfig */,
-				D5DA7BAE27D3EC7200BA922E /* AlpacaService.swift */,
 			);
 			path = ZenNotifications;
 			sourceTree = "<group>";
@@ -185,14 +216,30 @@
 				D578BB48277277F400D19059 /* Settings.swift */,
 				D5DA5B7427CAC94E00EE1CFC /* HistoricalDailyDataChart.swift */,
 				D5DA7BB227D3FF2800BA922E /* ImageSlider.swift */,
+				D5A285D427E8EFDD00FF4558 /* CryptoExchanges.swift */,
+				D5743A7A27ECDE4E0019B7D6 /* CandleStickChart.swift */,
+				D5743A8B27ECFF7E0019B7D6 /* CryptoHomePage.swift */,
+				D5743ACE27ED06D00019B7D6 /* LineChartView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		D5743A7027EBC10C0019B7D6 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				D5743A7127EBC14D0019B7D6 /* Utlities.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		D5E5293D27DD41D300759C36 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				D5E5293F27DD41FA00759C36 /* HomePageViewModel.swift */,
+				D5E5295227E8E9FD00759C36 /* NewsViewModel.swift */,
+				D5A285D627E8F75900FF4558 /* CryptoExchangeViewModel.swift */,
+				D5743A8F27ECFFE10019B7D6 /* CryptoHomePageViewModel.swift */,
+				D5743AD027ED06FC0019B7D6 /* LineChartVIewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -201,6 +248,8 @@
 			isa = PBXGroup;
 			children = (
 				D5E5294127DD461100759C36 /* PolygonModel.swift */,
+				D5E5294827E6736400759C36 /* AlpacaModel.swift */,
+				D5E5294C27E6746F00759C36 /* AlphaVantageModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -208,9 +257,19 @@
 		D5E5294327DD5EE500759C36 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				D5DA7BAE27D3EC7200BA922E /* AlpacaService.swift */,
 				D5E5294427DD5EF700759C36 /* PolygonService.swift */,
+				D5E5294A27E6739B00759C36 /* AlphaVantage.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		D5E5294E27E7A73C00759C36 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D5E5294F27E7A75900759C36 /* DateExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +291,8 @@
 			packageProductDependencies = (
 				D5113280275AAD14001D20EF /* FirebaseAuth */,
 				D5113283275AAD53001D20EF /* GoogleSignIn */,
+				D5743A8627ECFE4B0019B7D6 /* Charts */,
+				D5743ACC27ED05D90019B7D6 /* SwiftUICharts */,
 			);
 			productName = ZenNotifications;
 			productReference = D511324D275A9ECB001D20EF /* ZenNotifications.app */;
@@ -308,6 +369,8 @@
 			packageReferences = (
 				D511327F275AAD14001D20EF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				D5113282275AAD53001D20EF /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				D5743A8527ECFE4B0019B7D6 /* XCRemoteSwiftPackageReference "Charts" */,
+				D5743ACB27ED05D90019B7D6 /* XCRemoteSwiftPackageReference "ChartView" */,
 			);
 			productRefGroup = D511324E275A9ECB001D20EF /* Products */;
 			projectDirPath = "";
@@ -353,12 +416,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5743A8C27ECFF7E0019B7D6 /* CryptoHomePage.swift in Sources */,
 				D5113253275A9ECB001D20EF /* ContentView.swift in Sources */,
+				D5E5295027E7A75900759C36 /* DateExtension.swift in Sources */,
+				D5743ACF27ED06D00019B7D6 /* LineChartView.swift in Sources */,
+				D5743A9027ECFFE10019B7D6 /* CryptoHomePageViewModel.swift in Sources */,
 				D5DA5B7527CAC94E00EE1CFC /* HistoricalDailyDataChart.swift in Sources */,
+				D5A285D527E8EFDD00FF4558 /* CryptoExchanges.swift in Sources */,
+				D5E5294927E6736400759C36 /* AlpacaModel.swift in Sources */,
+				D5E5295327E8E9FD00759C36 /* NewsViewModel.swift in Sources */,
+				D5E5294D27E6746F00759C36 /* AlphaVantageModel.swift in Sources */,
 				D5E5294027DD41FA00759C36 /* HomePageViewModel.swift in Sources */,
 				D511327E275A9F94001D20EF /* LoginPage.swift in Sources */,
 				D578BB4327724B2600D19059 /* Home.swift in Sources */,
 				D578BB452772752B00D19059 /* Homepage.swift in Sources */,
+				D5E5294B27E6739B00759C36 /* AlphaVantage.swift in Sources */,
+				D5743A7227EBC14D0019B7D6 /* Utlities.swift in Sources */,
 				D578BB49277277F400D19059 /* Settings.swift in Sources */,
 				D578BB472772754200D19059 /* TextGeneration.swift in Sources */,
 				D5E5294527DD5EF700759C36 /* PolygonService.swift in Sources */,
@@ -367,7 +440,10 @@
 				D578BB4B277289A200D19059 /* Tickets.swift in Sources */,
 				D5DA7BAF27D3EC7200BA922E /* AlpacaService.swift in Sources */,
 				D59A555D27A9F6900080BE1D /* CryptoService.swift in Sources */,
+				D5A285D727E8F75900FF4558 /* CryptoExchangeViewModel.swift in Sources */,
 				D5C94927277926C800AAE295 /* TextCompletion.swift in Sources */,
+				D5743A7B27ECDE4E0019B7D6 /* CandleStickChart.swift in Sources */,
+				D5743AD127ED06FC0019B7D6 /* LineChartVIewModel.swift in Sources */,
 				D5DA7BB327D3FF2800BA922E /* ImageSlider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -733,6 +809,22 @@
 				kind = branch;
 			};
 		};
+		D5743A8527ECFE4B0019B7D6 /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+		D5743ACB27ED05D90019B7D6 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -745,6 +837,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D5113282275AAD53001D20EF /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignIn;
+		};
+		D5743A8627ECFE4B0019B7D6 /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D5743A8527ECFE4B0019B7D6 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
+		};
+		D5743ACC27ED05D90019B7D6 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D5743ACB27ED05D90019B7D6 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

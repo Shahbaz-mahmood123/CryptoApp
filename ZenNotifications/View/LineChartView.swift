@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import SwiftUICharts
 
 struct LineChartView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        LineView(data: [12, 16, 19, 34, 55, 66, 0], title: "testing")
     }
 }
 

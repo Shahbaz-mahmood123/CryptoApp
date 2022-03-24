@@ -8,8 +8,19 @@
 import SwiftUI
 
 struct CryptoHomePage: View {
+    @State var exchangeRates: ExchangeRate? = nil
+    @State var crypto = "BTC"
+    @ObservedObject private var viewModel = CryptoHomePageViewModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        GeometryReader{ geometryReader in
+            
+            TabView{
+//                tabItem("BTC")
+//                tabItem("ETH")
+            }
+        }
+        
     }
 }
 

@@ -44,13 +44,15 @@ struct News: Codable, Identifiable {
     }
 }
 
-struct NewsImage: Codable {
+struct NewsImage: Codable, Identifiable {
     let size: Size
     let url: String
+    let id: UUID?
 
     enum CodingKeys: String, CodingKey {
         case size = "size"
         case url = "url"
+        case id = "id"
     }
 }
 

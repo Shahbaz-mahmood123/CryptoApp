@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+extension LineChartView{
+    class LineChartViewModel{
+        
+        
+    }
+    
+}

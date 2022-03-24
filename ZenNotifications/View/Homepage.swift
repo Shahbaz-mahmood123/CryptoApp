@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import SwiftUICharts
+
 
 struct Homepage: View {
     //TODO: Need to move all the below to view models and make published properties inside the view model and also remove all constants and rename
@@ -103,6 +105,8 @@ struct Homepage: View {
                 }
                 //TODO: Need to pass actual market data and not fake sample data and make a better line chart. Also maybe redo the chart
                 HStack(){
+                    
+                    LineChartView()
                     //                    HistoricalDailyDataChart(data: samplePlot)
                     //                        .frame( maxWidth:.infinity, maxHeight: 250, alignment: .top)
                     
