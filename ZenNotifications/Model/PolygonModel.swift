@@ -8,11 +8,11 @@
 import Foundation
 
 
-struct DailyOpenClose: Codable {
+struct DailyOpenClose: Codable, Hashable {
     let symbol: String
     let isUTC: Bool
     let day: String
-    let responseOpen: Int
+    let responseOpen: Double
     let close: Double
     let openTrades: [Trade]
     let closingTrades: [Trade]
@@ -30,7 +30,7 @@ struct DailyOpenClose: Codable {
 
 
 // MARK: - Trade
-struct Trade: Codable {
+struct Trade: Codable, Hashable{
     let exchange: Int
     let tradePrice: Double
     let tradeSize: Double
@@ -47,12 +47,57 @@ struct Trade: Codable {
         case timeStamp = "t"
     }
 }
+struct CryptoResponse: Codable {
+    let ticker: String
+    let queryCount: Int
+    let resultsCount: Int
+    let adjusted: Bool
+    let results: [Result]
+    let status: String
+    // let requestID: String
+    let count: Int
+}
+
+struct Result: Codable {
+    let v: Double
+    let vw: Double
+    let o: Double
+    let c: Double
+    let h: Double
+    let l: Double
+    let t: Int
+    let n: Int
+}
+
+struct CurrentMarketStatus: Codable {
+    let market: String
+    let earlyHours: Bool
+    let afterHours: Bool
+    let serverTime: String
+    let exchanges: Exchanges
+    let currencies: Currencies
+}
+
+// MARK: - Currencies
+struct Currencies: Codable {
+    let fx: String
+    let crypto: String
+}
+
+// MARK: - Exchanges
+struct Exchanges: Codable {
+    let nyse: String
+    let nasdaq: String
+    let otc: String
+}
+
+
 
 #if DEBUG
 
 extension DailyOpenClose {
     
-   
+    
     static var example: DailyOpenClose {
         DailyOpenClose(
             symbol: "BTC-USD",
@@ -68,12 +113,12 @@ extension DailyOpenClose {
     
     static var openTrade: Trade{
         Trade(
-                exchange: 2,
-                tradePrice: 11443,
-                tradeSize: 0.28057044,
-                conditionCodes: [2],
-                i: "511235750",
-                timeStamp: 160263360008
+            exchange: 2,
+            tradePrice: 11443,
+            tradeSize: 0.28057044,
+            conditionCodes: [2],
+            i: "511235750",
+            timeStamp: 160263360008
             
         )
         
@@ -81,13 +126,13 @@ extension DailyOpenClose {
     
     static var closedTrade: Trade{
         Trade (
-                exchange: 1,
-                tradePrice: 11427.7,
-                tradeSize: 0.00278713,
-                conditionCodes:[1],
-                i: "105717894",
-                timeStamp: 1602719999498)
-    }   
+            exchange: 1,
+            tradePrice: 11427.7,
+            tradeSize: 0.00278713,
+            conditionCodes:[1],
+            i: "105717894",
+            timeStamp: 1602719999498)
+    }
     
 }
 

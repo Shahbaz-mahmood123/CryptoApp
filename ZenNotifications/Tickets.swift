@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 
-struct Ticket: Codable, Identifiable {
+struct Ticket: Codable  , Identifiable {
     let id = UUID()
     var requester: String
     var title: String

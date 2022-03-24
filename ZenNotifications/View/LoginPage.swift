@@ -50,7 +50,7 @@ struct LoginPage: View {
                         Capsule()
                             .strokeBorder(Color(.white))
                     )
-                }.preferredColorScheme(.light)
+                }.preferredColorScheme(.dark)
                 .padding(.top, 25)
                 
                 Text(getAttributedString(string:"By creating an account, you are agreeing to our Terms of Service"))

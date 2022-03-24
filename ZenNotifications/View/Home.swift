@@ -15,7 +15,7 @@ struct Home: View {
       
             TabView(selection: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Selection@*/.constant(1)/*@END_MENU_TOKEN@*/) {
                 Homepage().tabItem {  Label("Crypto", systemImage: "list.dash")}.tag(1)
-                TextGeneration().tabItem { Label("Text Generation", systemImage: "square.and.pencil") }.tag(2)
+                TextGeneration().tabItem { Label("News", systemImage: "square.and.pencil") }.tag(2)
                 Settings().tabItem { Label("Settings", systemImage: "person") }.tag(3)
             }
         

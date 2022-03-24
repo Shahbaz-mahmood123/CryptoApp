@@ -8,13 +8,8 @@
 import SwiftUI
 
 struct Homepage: View {
-    //@State var tickets = [Ticket]()
-    //TODO: Need to move all the below to view models and make published properties inside the view model and also remove all constants and rename 
-    @State var cryptoData: CryptoResponse? = nil
+    //TODO: Need to move all the below to view models and make published properties inside the view model and also remove all constants and rename
     @State var exchangeRates: ExchangeRate? = nil
-    //@ObservedObject var cryptoService = CryptoService()
-    @State var dailyData: HistoricalDailyData? = nil
-    @State var marketStatus: CurrentMarketStatus? = nil
     @State var crypto = "BTC"
     @ObservedObject private var viewModel = HomePageViewModel()
     
@@ -31,6 +26,7 @@ struct Homepage: View {
                         .padding()
                         .background(.white.opacity(0.1))
                         .clipShape(Capsule())
+                        .shadow(radius: 7)
                     Spacer()
                     let currentTime = String(DateFormatter.localizedString(from: Date(), dateStyle: .medium, timeStyle: .short))
                     Text(currentTime)
@@ -42,9 +38,6 @@ struct Homepage: View {
                         .frame(width: 25, height: 25, alignment: .center)
                     
                 }
-                    
-                    
-                    
                 }
                 VStack{
                     Text("Current Exchange rate")
@@ -52,18 +45,16 @@ struct Homepage: View {
                     HStack(){
                         let currency = exchangeRates?.realtimeCurrencyExchangeRate.the3ToCurrencyCode ?? "CAD Dollars"
                         
-                        let currencyRate = (convertStringToCurrency(amount: exchangeRates?.realtimeCurrencyExchangeRate.the5ExchangeRate ?? "42,000.00"))
+                        let currencyRate = (convertStringToCurrency(amount: (exchangeRates?.realtimeCurrencyExchangeRate.the5ExchangeRate ?? "43,000.00") ))
                         Spacer()
                         Text("\(currencyRate)").font(.system(size:38, weight: .bold))
-                        
                         Spacer()
                         //Text(currencyRate)
                     }
                 }
                 
                 HStack(){
-                    
-                    let marketStatus = marketStatus?.currencies.crypto ?? "Current Market Status"
+                    let marketStatus = viewModel.marketStatus?.currencies.crypto ?? "Current Market Status"
                     if(marketStatus == "open" ){
                         Text("Market is: \(marketStatus)")
                             .foregroundColor(.green)
@@ -81,14 +72,15 @@ struct Homepage: View {
                     
                     Spacer()
                     
-                    let cryptcurrencies = ["BTC", "ETH", "MKR", "XRP", "BNB"]
+                    let cryptocurrencies = ["BTC", "ETH", "MKR", "XRP", "BNB"]
                     
                     Picker("Select a cryptocurrency", selection: $crypto) {
-                        ForEach(cryptcurrencies, id: \.self) {
+                        ForEach(cryptocurrencies, id: \.self) {
                             Text($0)
                         }.onChange( of: crypto)
                         {            crypto in
-                            CryptoService().getExchangeRate(cryptoSymbol: crypto, completion: {(exchangeRates) in self.exchangeRates = exchangeRates })
+                            //viewModel.exchangeRate
+                            AlphaVantageService().getExchangeRate(cryptoSymbol: crypto, completion: {(exchangeRates) in self.exchangeRates = exchangeRates })
                         }
                         .pickerStyle(.menu)
                         // Text("Selected c: \(crypto)")
@@ -111,38 +103,66 @@ struct Homepage: View {
                 }
                 //TODO: Need to pass actual market data and not fake sample data and make a better line chart. Also maybe redo the chart
                 HStack(){
-                    HistoricalDailyDataChart(data: samplePlot)
-                        .frame( maxWidth:.infinity, maxHeight: 250, alignment: .top)
+                    //                    HistoricalDailyDataChart(data: samplePlot)
+                    //                        .frame( maxWidth:.infinity, maxHeight: 250, alignment: .top)
                     
                 }
                 Divider()
-                
-                HStack{
-                    if(viewModel.dailyOpenClose?.openTrades[1].exchange == 2){
-                        let  tradePrice = convertDoubleToCurrency(amount: viewModel.dailyOpenClose?.openTrades[1].tradePrice ?? 84)
-                        Text("Bitfinex")
-                        Text("Current Trade Price: \(tradePrice)")
-                    }
-                    if(viewModel.dailyOpenClose?.openTrades[1].exchange == 1){
-                        let  tradePrice = convertDoubleToCurrency(amount: viewModel.dailyOpenClose?.openTrades[1].tradePrice ?? 84)
-                        Text("Coinbase")
-                        Text("Current Trade Price: \(tradePrice)")
-                    }
-                    if(viewModel.dailyOpenClose?.openTrades[1].exchange == 6){
-                        let  tradePrice = convertDoubleToCurrency(amount: viewModel.dailyOpenClose?.openTrades[1].tradePrice ?? 84)
-                        Text("global")
-                        Text("Current Trade Price: \(tradePrice)")
-                    }
+//                VStack{
+//                    if(viewModel.dailyOpenClose?.openTrades[1].exchange == 2){
+//                        let  tradePrice = convertDoubleToCurrency(amount: viewModel.dailyOpenClose?.openTrades[1].tradePrice ?? 84)
+//                        let tradeSize = viewModel.dailyOpenClose?.openTrades[1].tradeSize ?? 0.5
+//                        
+//                        Section {
+//                            
+//                            Text("Bitfinex")
+//                                .font(.title2)
+//                                .fontWeight(.bold)
+//                                .multilineTextAlignment(.leading)
+//                                .padding()
+//                                .background(.white.opacity(0.1))
+//                                .clipShape(Ellipse())
+//                            
+//                            VStack{
+//                                HStack{
+//                                    Text("Most recent Trade Price:")
+//                                    Spacer()
+//                                    Text(tradePrice)
+//                                }
+//                                HStack{
+//                                    Text("Most recent Trade Size:")
+//                                    Spacer()
+//                                    Text("\(tradeSize)")
+//                                }
+//                                
+//                            }
+//                        }
+//
+//                    }
+//                    if(viewModel.dailyOpenClose?.openTrades[2].exchange == 1){
+//                        let  tradePrice = convertDoubleToCurrency(amount: viewModel.dailyOpenClose?.openTrades[1].tradePrice ?? 84)
+//                        Text("Coinbase")
+//                        Text("Current Trade Price: \(tradePrice)")
+//                    }
+//                    if(viewModel.dailyOpenClose?.openTrades[3].exchange == 6){
+//                        let  tradePrice = convertDoubleToCurrency(amount: viewModel.dailyOpenClose?.openTrades[1].tradePrice ?? 84)
+//                        Text("global")
+//                        Text("Current Trade Price: \(tradePrice)")
+//                    }
+//                    Spacer()
+//                    //                    let test = convertDoubleToCurrency(amount: viewModel.previousDayDailyOpenClose?.openTrades[1].tradePrice ?? 68)
+//                    //                    Text("testing\(test)")
+//                }
+                VStack{
+                    
+                    CryptoExchanges()
                 }
                 
-
+                
             }.frame(maxWidth: geometryReader.size.width, maxHeight: geometryReader.size.height, alignment: .topLeading)}
         .navigationTitle("Crypto")
         .onAppear(){
-            //            CryptoService().getExchangeRate{(exchangeRates) in self.exchangeRates = exchangeRates}
-            CryptoService().getExchangeRate(cryptoSymbol: crypto, completion: {(exchangeRates) in self.exchangeRates = exchangeRates })
-            //            CryptoService().getHistoricalDataDaily {(dailyData) in self.dailyData = dailyData}
-            CryptoService().getCurrentMarketStatus(completion:  {(marketStatus) in self.marketStatus = marketStatus})
+            AlphaVantageService().getExchangeRate(cryptoSymbol: crypto, completion: {(exchangeRates) in self.exchangeRates = exchangeRates })
             
         }.preferredColorScheme(.dark)
     }
@@ -153,7 +173,7 @@ struct Homepage_Previews: PreviewProvider {
             Homepage()
                 .preferredColorScheme(.dark)
                 .previewDevice("iPhone 13")
-                .previewInterfaceOrientation(.portraitUpsideDown)
+            
         }
     }
 }
@@ -170,12 +190,8 @@ func convertDoubleToCurrency(amount: Double) -> String{
 }
 
 func convertStringToCurrency(amount: String) -> String{
-    
     let response = (amount as NSString).doubleValue
-    
     return convertDoubleToCurrency(amount: response)
-    
-    
 }
 
 func convertCurrencyToDouble(input: String) -> Double? {
