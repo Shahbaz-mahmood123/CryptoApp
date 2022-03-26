@@ -9,13 +9,23 @@ import SwiftUI
 import SwiftUICharts
 
 struct LineChartView: View {
+    @StateObject var viewModel = LineChartViewModel()
+    
     var body: some View {
-        LineView(data: [12, 16, 19, 34, 55, 66, 0], title: "testing")
+        HStack{
+            LineView(data: viewModel.lineData, title: "Monthly")
+        }
+        HStack{
+        List(viewModel.barData){ data in
+            Text(data.symbol)
+        }
+        }
     }
 }
 
 struct LineChartView_Previews: PreviewProvider {
     static var previews: some View {
         LineChartView()
+            .preferredColorScheme(.dark)
     }
 }

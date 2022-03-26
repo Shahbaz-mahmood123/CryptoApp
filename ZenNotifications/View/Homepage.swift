@@ -16,6 +16,7 @@ struct Homepage: View {
     @ObservedObject private var viewModel = HomePageViewModel()
     
     
+    
     var body: some View {
         GeometryReader{ geometryReader in
             VStack(alignment: .leading){
@@ -38,7 +39,6 @@ struct Homepage: View {
                     Image(crypto)
                         .resizable()
                         .frame(width: 25, height: 25, alignment: .center)
-                    
                 }
                 }
                 VStack{

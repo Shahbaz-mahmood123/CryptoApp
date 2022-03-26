@@ -34,9 +34,10 @@ struct CryptoExchanges: View {
                             Text(trades.timestamp)
                         }
                     }
+                    
                 }
             }
-        }
+        }.navigationBarTitle("Recent Trades")
     }
 }
 

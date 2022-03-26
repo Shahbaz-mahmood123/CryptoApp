@@ -90,13 +90,15 @@ struct Quote: Codable {
 }
 
 
-struct BarResponse: Codable {
+struct BarResponse: Codable, Identifiable {
+    let id: UUID?
     let bars: [Bar]
     let symbol: String
 
     enum CodingKeys: String, CodingKey {
         case bars = "bars"
         case symbol = "symbol"
+        case id = "id"
     }
 }
 
