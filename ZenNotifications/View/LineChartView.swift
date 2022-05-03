@@ -9,11 +9,12 @@ import SwiftUI
 import SwiftUICharts
 
 struct LineChartView: View {
-    @ObservedObject var viewModel = LineChartViewModel()
+    
+    @StateObject var vm = LineChartViewModel()
     
     var body: some View {
         HStack{
-        LineView(data: [12,15,61,18,45,2,15,68], title: "Monthly")
+            LineView(data: vm.setLineChartData(data: vm.barData), title: "Monthly")
         }
 //        HStack{
 //        List(viewModel.barData){ data in

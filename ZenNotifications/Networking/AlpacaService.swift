@@ -135,4 +135,17 @@ class AlpacaService: ObservableObject {
         }
         task.resume()
     }
+    
+    func getLineChartData() async throws {
+        guard let url = URL(string: "https://data.alpaca.markets/v1beta1/crypto/BTCUSD/trades?limit=25") else { fatalError("Missing URL") }
+            var urlRequest = URLRequest(url: url)
+            urlRequest.setValue(alpacaApiKey, forHTTPHeaderField: "APCA-API-KEY-ID")
+            urlRequest.setValue(alpacaSecretKey, forHTTPHeaderField: "APCA-API-SECRET-KEY")
+        
+            let (data, response) = try await URLSession.shared.data(for: urlRequest)
+
+            guard (response as? HTTPURLResponse)?.statusCode == 200 else { fatalError("Error while fetching data") }
+            let recentTradeResponse = try JSONDecoder().decode(RecentTradeResponse.self, from: data)
+        print("Async trade response", recentTradeResponse)
+    }
 }

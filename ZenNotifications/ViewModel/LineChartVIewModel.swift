@@ -32,5 +32,14 @@ extension LineChartView{
             }
             return graphData
         }
+            
+//            .task{
+//                do{
+//                try await alpacaService.getLineChartData()
+//                }catch{
+//                    print("Error", error)
+//                }
+//            }
+
     }
 }
