@@ -39,5 +39,8 @@ extension CryptoExchanges{
         func fetchRecentTrades(){
             alpacaService.getRecentTrades(completion: {(recentTrades) in self.recentTrades = [recentTrades]})
         }
+        func fetchRecentTradesAsync(){
+            
+        }
     }
 }

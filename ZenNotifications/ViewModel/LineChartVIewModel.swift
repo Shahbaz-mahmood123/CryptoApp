@@ -14,15 +14,14 @@ extension LineChartView{
         @Published var lineData: [Double] = []
         
         init(){
-            
             lineData = setLineChartData(data: fetchBarData())
-            //print(barData)
         }
         
         func fetchBarData() -> [BarResponse]{
             alpacaService.getBars(completion:{(barData) in self.barData = [barData]})
             return barData
         }
+
         func setLineChartData(data: [BarResponse]) -> [Double]{
             var graphData: [Double] = []
             for i in data{

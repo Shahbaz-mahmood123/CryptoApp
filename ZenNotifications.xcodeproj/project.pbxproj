@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D506FCEF2824273000AB28D4 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D506FCEE2824273000AB28D4 /* HttpClient.swift */; };
 		D5113251275A9ECB001D20EF /* ZenNotificationsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5113250275A9ECB001D20EF /* ZenNotificationsApp.swift */; };
 		D5113253275A9ECB001D20EF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5113252275A9ECB001D20EF /* ContentView.swift */; };
 		D5113255275A9ECD001D20EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5113254275A9ECD001D20EF /* Assets.xcassets */; };
@@ -67,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D506FCEE2824273000AB28D4 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 		D511324D275A9ECB001D20EF /* ZenNotifications.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZenNotifications.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5113250275A9ECB001D20EF /* ZenNotificationsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenNotificationsApp.swift; sourceTree = "<group>"; };
 		D5113252275A9ECB001D20EF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				D5743A7127EBC14D0019B7D6 /* Utlities.swift */,
+				D506FCEE2824273000AB28D4 /* HttpClient.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				D5E5294927E6736400759C36 /* AlpacaModel.swift in Sources */,
 				D5E5295327E8E9FD00759C36 /* NewsViewModel.swift in Sources */,
 				D5E5294D27E6746F00759C36 /* AlphaVantageModel.swift in Sources */,
+				D506FCEF2824273000AB28D4 /* HttpClient.swift in Sources */,
 				D5E5294027DD41FA00759C36 /* HomePageViewModel.swift in Sources */,
 				D511327E275A9F94001D20EF /* LoginPage.swift in Sources */,
 				D578BB4327724B2600D19059 /* Home.swift in Sources */,

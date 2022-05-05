@@ -21,7 +21,6 @@ struct CryptoHomePage: View {
                 Text("World").tag(1)
             }.tabViewStyle(PageTabViewStyle())
         }
-        
     }
 }
 
