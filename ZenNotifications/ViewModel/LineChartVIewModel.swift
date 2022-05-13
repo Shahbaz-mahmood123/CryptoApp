@@ -14,14 +14,15 @@ extension LineChartView{
         @Published var lineData: [Double] = []
         
         init(){
-            lineData = setLineChartData(data: fetchBarData())
+            //lineData = setLineChartData(data: fetchBarData(currentCrypto: "BTCUSD"))
         }
         
-        func fetchBarData() -> [BarResponse]{
-            alpacaService.getBars(completion:{(barData) in self.barData = [barData]})
+        func fetchBarData(currentCrypto: String) -> [BarResponse]{
+            alpacaService.getBars( crypto: currentCrypto ,completion:{(barData) in self.barData = [barData]})
             return barData
         }
-
+        
+        //gets data from alapaca response and appends to new array to plot to linegraph
         func setLineChartData(data: [BarResponse]) -> [Double]{
             var graphData: [Double] = []
             for i in data{

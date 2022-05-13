@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 extension CryptoExchanges{
     class CryptoExchangeViewModel: ObservableObject{
         @Published var ftxuExchangeResponse = [ExchangeResponse]()
@@ -17,9 +18,22 @@ extension CryptoExchanges{
         
         private let alpacaService = AlpacaService()
         
+        private var AlphaVantage: String {
+          get {
+            guard let filePath = Bundle.main.path(forResource: "Info", ofType: "plist") else {
+              fatalError("Couldn't find file 'Info.plist'.")
+            }
+            let plist = NSDictionary(contentsOfFile: filePath)
+            guard let value = plist?.object(forKey: "AlphaVantageAPIKey") as? String else {
+              fatalError("Couldn't find key 'AlphaVantageAPIKey' in 'Info.plist'.")
+            }
+            return value
+          }
+        }
+        
         init(){
             fetchExchangeData()
-            fetchBarData()
+            //fetchBarData()
             fetchRecentTrades()
         }
         
@@ -33,14 +47,11 @@ extension CryptoExchanges{
             alpacaService.getExchangePrice(exchange: "CBSE", completion: {(cbseExchangeResponse) in self.cbseExchangeResponse = cbseExchangeResponse})
  
         }
-        func fetchBarData(){
-            alpacaService.getBars(completion:{(barData) in self.barData = barData})
-        }
+//        func fetchBarData(){
+//            alpacaService.getBars(completion:{(barData) in self.barData = barData})
+//        }
         func fetchRecentTrades(){
             alpacaService.getRecentTrades(completion: {(recentTrades) in self.recentTrades = [recentTrades]})
-        }
-        func fetchRecentTradesAsync(){
-            
         }
     }
 }

@@ -41,10 +41,7 @@ extension Homepage {
         }
         
         func fetchHomePageData(){
-            //AlpacaService().getnews(completion: {(newsResponse) in self.newsResponse = newsResponse})
-            
-//            AlphaVantageService().getExchangeRate(cryptoSymbol: "BTC", completion: {(exchangeRate) in self.exchangeRate = self.exchangeRate})
-            
+
             PolygonService().getCryptoData(completion:{(cryptoData) in self.cryptoData = cryptoData})
             
             PolygonService().getCurrentMarketStatus(completion: {(marketStatus) in self.marketStatus = marketStatus})

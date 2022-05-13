@@ -106,62 +106,12 @@ struct Homepage: View {
                 //TODO: Need to pass actual market data and not fake sample data and make a better line chart. Also maybe redo the chart
                 HStack(){
                     
-                    LineChartView()
+                    LineChartView(crypto: self.$crypto)
                     //                    HistoricalDailyDataChart(data: samplePlot)
                     //                        .frame( maxWidth:.infinity, maxHeight: 250, alignment: .top)
                     
                 }
                 Divider()
-//                VStack{
-//                    if(viewModel.dailyOpenClose?.openTrades[1].exchange == 2){
-//                        let  tradePrice = convertDoubleToCurrency(amount: viewModel.dailyOpenClose?.openTrades[1].tradePrice ?? 84)
-//                        let tradeSize = viewModel.dailyOpenClose?.openTrades[1].tradeSize ?? 0.5
-//                        
-//                        Section {
-//                            
-//                            Text("Bitfinex")
-//                                .font(.title2)
-//                                .fontWeight(.bold)
-//                                .multilineTextAlignment(.leading)
-//                                .padding()
-//                                .background(.white.opacity(0.1))
-//                                .clipShape(Ellipse())
-//                            
-//                            VStack{
-//                                HStack{
-//                                    Text("Most recent Trade Price:")
-//                                    Spacer()
-//                                    Text(tradePrice)
-//                                }
-//                                HStack{
-//                                    Text("Most recent Trade Size:")
-//                                    Spacer()
-//                                    Text("\(tradeSize)")
-//                                }
-//                                
-//                            }
-//                        }
-//
-//                    }
-//                    if(viewModel.dailyOpenClose?.openTrades[2].exchange == 1){
-//                        let  tradePrice = convertDoubleToCurrency(amount: viewModel.dailyOpenClose?.openTrades[1].tradePrice ?? 84)
-//                        Text("Coinbase")
-//                        Text("Current Trade Price: \(tradePrice)")
-//                    }
-//                    if(viewModel.dailyOpenClose?.openTrades[3].exchange == 6){
-//                        let  tradePrice = convertDoubleToCurrency(amount: viewModel.dailyOpenClose?.openTrades[1].tradePrice ?? 84)
-//                        Text("global")
-//                        Text("Current Trade Price: \(tradePrice)")
-//                    }
-//                    Spacer()
-//                    //                    let test = convertDoubleToCurrency(amount: viewModel.previousDayDailyOpenClose?.openTrades[1].tradePrice ?? 68)
-//                    //                    Text("testing\(test)")
-//                }
-                VStack{
-                    
-                    CryptoExchanges()
-                }
-                
                 
             }.frame(maxWidth: geometryReader.size.width, maxHeight: geometryReader.size.height, alignment: .topLeading)}
         .navigationTitle("Crypto")
@@ -181,10 +131,6 @@ struct Homepage_Previews: PreviewProvider {
         }
     }
 }
-
-let samplePlot: [CGFloat] = [
-    989,1200,750,790,650,950,1200,600,890,1209, 1400,900,1250,1600,1200
-]
 
 func convertDoubleToCurrency(amount: Double) -> String{
     let numberFormatter = NumberFormatter()

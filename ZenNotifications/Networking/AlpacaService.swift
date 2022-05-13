@@ -90,8 +90,8 @@ class AlpacaService: ObservableObject {
         
     }
     
-    func getBars(completion: @escaping (BarResponse) -> Void){
-        let url = URL(string:"https://data.alpaca.markets/v1beta1/crypto/btcusd/bars?start=2021-04-01T00:00:00Z&timeframe=1Day")!
+    func getBars(crypto: String,completion: @escaping (BarResponse) -> Void){
+        let url = URL(string:"https://data.alpaca.markets/v1beta1/crypto/\(crypto)/bars?start=2021-04-01T00:00:00Z&timeframe=1Day")!
         
         var request = URLRequest(url: url)
         

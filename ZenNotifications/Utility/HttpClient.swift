@@ -28,8 +28,18 @@ class HttpClient {
     
     static let shared = HttpClient()
     
-    func fetch<T: Codable>(url: URL) async throws -> [T] {
-        let (data, response) = try await URLSession.shared.data(from: url)
+    func fetch<T: Codable>(url: URL, apiKey: String?, secretKey:String?) async throws -> [T] {
+        var request = URLRequest(url:url)
+        
+        //TODO, need to make this more generic to account for API calls that are not to Alpaca
+        if(apiKey != "" || apiKey != nil ){
+            request.addValue(apiKey! , forHTTPHeaderField: "APCA-API-KEY-ID")
+        }
+        if(secretKey != "" || secretKey != nil){
+            request.addValue(apiKey! , forHTTPHeaderField: "APCA-API-KEY-ID")
+        }
+        
+        let (data, response) = try await URLSession.shared.data(for: request)
         
         guard (response as? HTTPURLResponse)?.statusCode == 200 else {
             throw HttpError.badResponse
