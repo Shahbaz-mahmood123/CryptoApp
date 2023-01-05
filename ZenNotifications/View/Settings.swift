@@ -33,13 +33,7 @@ struct Settings: View {
                
             }.navigationTitle("Settings")
                 .listStyle(GroupedListStyle())
-            
-
-
-          
         }
-        
-        
     }
     
     func logout (){

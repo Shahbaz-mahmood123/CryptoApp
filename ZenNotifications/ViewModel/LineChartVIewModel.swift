@@ -13,9 +13,7 @@ extension LineChartView{
         private let alpacaService = AlpacaService()
         @Published var lineData: [Double] = []
         
-        init(){
-            //lineData = setLineChartData(data: fetchBarData(currentCrypto: "BTCUSD"))
-        }
+        init(){}
         
         func fetchBarData(currentCrypto: String) -> [BarResponse]{
             alpacaService.getBars( crypto: currentCrypto ,completion:{(barData) in self.barData = [barData]})
@@ -32,14 +30,5 @@ extension LineChartView{
             }
             return graphData
         }
-            
-//            .task{
-//                do{
-//                try await alpacaService.getLineChartData()
-//                }catch{
-//                    print("Error", error)
-//                }
-//            }
-
     }
 }

@@ -25,8 +25,6 @@ struct ImageSlider: View {
                                 AsyncImage( url: image){ image in image
                                         .resizable()
                                         .scaledToFill()
-
-                                        
                                 } placeholder: {
                                     ProgressView()
                                   
@@ -34,7 +32,7 @@ struct ImageSlider: View {
                             }.opacity(0.9)
                             VStack{
                             HStack(){
-                                Text(newsResponse?.news[index].headline ?? "error")
+                                Text(newsResponse?.news[index].headline ?? "error getting latest news")
                                     .fontWeight(.heavy)
                                     .multilineTextAlignment(.center)
                                     .frame(maxWidth: geometryReader.size.width)
@@ -65,8 +63,8 @@ struct ImageSlider: View {
                // .animation(.easeOut)
             }
             .padding(.vertical)
-        .onAppear{AlpacaService().getnews(completion: {(newsResponse) in self.newsResponse = newsResponse })}
-        }
+            
+        }.onAppear{viewModel.fetchNews()}
     }
 }
 struct ImageSlider_Previews: PreviewProvider {

@@ -7,8 +7,12 @@
 
 import Foundation
 
+enum APIErrors: Error {
+    case badURL, badResponse, errorDecodingData, invalidURL, requestLimit
+}
 
 class AlpacaService: ObservableObject {
+    //API Keys
     var alpacaApiKey: String {
       get {
         // 1
@@ -39,9 +43,12 @@ class AlpacaService: ObservableObject {
     }
 
     
-    func getnews(completion: @escaping (NewsResponse) -> Void ){
+    func getnews(completion: @escaping (Swift.Result<NewsResponse, APIErrors>) -> Void ){
         
-        let url = URL(string:"https://data.alpaca.markets/v1beta1/news")!
+        guard let url = URL(string:"https://data.alpaca.markets/v1beta1/news") else {
+            completion(.failure(.invalidURL))
+            return
+        }
         
         var request = URLRequest(url: url)
         
@@ -50,20 +57,23 @@ class AlpacaService: ObservableObject {
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {
-                print(error?.localizedDescription ?? "No data")
-                return
+                return completion(.failure(.badResponse))
+                
             }
-            //assign data to variable to return via completion handler
-            let newsResponse = try! JSONDecoder().decode(NewsResponse.self, from: data)
-            
-            print(newsResponse)
-            DispatchQueue.main.async {
-                completion(newsResponse)
+            do{
+                let newsResponse = try! JSONDecoder().decode(NewsResponse.self, from: data)
+                
+                print(newsResponse)
+                DispatchQueue.main.async {
+                    completion(.success(newsResponse))
+                }
+            } catch{
+                DispatchQueue.main.async {
+                    completion(.failure(.errorDecodingData))
+                }
             }
         }
         task.resume()
-        
-        
     }
     
     func getExchangePrice(exchange: String,completion: @escaping (ExchangeResponse) -> Void){

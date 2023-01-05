@@ -13,15 +13,30 @@ extension ImageSlider {
         
         @Published var newsResponse: NewsResponse?
         @Published var exchangeResponse: ExchangeResponse?
+        @Published var showError = false
         
         private let alpacaService = AlpacaService()
         
         init(){
-            fetchNews()
+
         }
         
         func fetchNews(){
-            alpacaService.getnews(completion: {(newsResponse) in self.newsResponse = newsResponse})
+            
+            alpacaService.getnews(){result in
+                switch result{
+                case.success(let newsResponse):self.newsResponse = newsResponse
+                
+                case .failure(let error):
+                    if error == .errorDecodingData{
+                        self.showError = true
+                    }
+                    if error == .invalidURL {
+                        self.showError = true
+                    }
+                }}
+
+            //completion: {(newsResponse) in self.newsResponse = newsResponse}
         }
     }
 }
